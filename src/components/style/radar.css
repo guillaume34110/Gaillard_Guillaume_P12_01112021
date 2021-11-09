@@ -1,0 +1,13 @@
+/*radar-chart*/
+.radar-chart {
+    background: #282d30;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.0212249);
+    border-radius: 5px;
+  }
+  .recharts-polar-grid-angle line {
+    display: none;
+  }
+  .recharts-polar-angle-axis {
+    transform: scaleY(1.2) scaleX(1.06) translate(-3%, -7%);
+  }
+  

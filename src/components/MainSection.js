@@ -6,7 +6,10 @@ import Navbar from './main-section-component/NavBar.js';
 import Chartradar from './main-section-component/Radar.js';
 import Radialprogress from './main-section-component/RadialProgress.js';
 import Title from './main-section-component/Title.js';
-
+/**
+ * 
+ * Main fonction take all the component 
+ */
 const Mainsection = ({ userData }) => {
     return (
         <div className="main-section">

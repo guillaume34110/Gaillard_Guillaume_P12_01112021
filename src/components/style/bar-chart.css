@@ -1,0 +1,73 @@
+/*bar cahrts*/
+.barchart {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    background: #fbfbfb;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.0212249);
+    border-radius: 5px;
+    height: 274px;
+    padding: 23px 20px 23px 40px;
+  }
+  .legend {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+  .legend div {
+    display: flex;
+  }
+  .legend-kg {
+    margin-right: 32px;
+  }
+  .legend h3 {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 0.93rem;
+    line-height: 160%;
+    color: #20253a;
+  }
+  .legend p {
+    margin-left: 10px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 0.875rem;
+    line-height: 200%;
+    color: #74798c;
+  }
+  .legend span {
+    display: flex;
+    align-items: center;
+  }
+  .legend-kg div {
+    height: 8px;
+    width: 8px;
+    border-radius: 50%;
+    background: #282d30;
+  }
+  .legend-kCal div {
+    height: 8px;
+    width: 8px;
+    border-radius: 50%;
+    background: #e60000;
+  }
+  .custom-tooltip {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    color: white;
+    background: #e60000;
+    height: 63px;
+    min-width: 29px;
+    padding: 0 5px;
+  }
+  .custom-tooltip p {
+    text-align: center;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 7px;
+    line-height: 24px;
+  }
+  

@@ -1,4 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
+import PropTypes from 'prop-types';
+import '../style/radial-progress.css'
 
 const Radialprogress = ({userData}) => {
     const [sessionsData, setSessionsData] = useState()
@@ -33,3 +35,12 @@ const Radialprogress = ({userData}) => {
 }
 
 export default Radialprogress;
+
+Radialprogress.propTypes = { //https://stackoverflow.com/questions/26923042/how-do-you-validate-the-proptypes-of-a-nested-object-in-reactjs
+    userData: PropTypes.shape({
+        user : PropTypes.shape({
+            todayScore : PropTypes.number,
+            score : PropTypes.number
+        })
+    })
+  };

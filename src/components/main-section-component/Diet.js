@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
-
+import PropTypes from 'prop-types';
 import chicken from "../../assets/diet-icon/chicken.png"
 import apple from "../../assets/diet-icon/apple.png"
 import fire from "../../assets/diet-icon/fire.png"
 import burger from "../../assets/diet-icon/cheeseburger.png"
+import '../style/diet.css'
 
 const Diet = ({userData}) => {
     const [sessionsData, setSessionsData] = useState()
@@ -58,3 +59,15 @@ const Diet = ({userData}) => {
 }
 
 export default Diet;
+Diet.propTypes = { //https://stackoverflow.com/questions/26923042/how-do-you-validate-the-proptypes-of-a-nested-object-in-reactjs
+    userData: PropTypes.shape({
+        user : PropTypes.shape({
+            keyData : PropTypes.shape({
+                calorieCount: PropTypes.number,
+                carbohydrateCount: PropTypes.number,
+                lipidCount: PropTypes.number,
+                proteinCount: PropTypes.number,
+            })
+        })
+    })
+  };

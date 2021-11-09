@@ -3,6 +3,7 @@ import yoga from "../../assets/nav-icon/yoga.png"
 import swim from "../../assets/nav-icon/swim.png"
 import cycling from "../../assets/nav-icon/cycle.png"
 import strength from "../../assets/nav-icon/strength.png"
+import '../style/nav-bar.css'
 
 const Navbar = () => {
     return (

@@ -1,0 +1,72 @@
+/*diet*/
+.diet{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: all 0.3s;
+   
+  }
+  .diet article{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height : 124px;
+    width: 258px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.0212249);
+  border-radius: 5px;
+  background : #FBFBFB ;
+  transition: all 0.3s;
+  }
+  .diet-img {
+    height: 60px;
+    width: 60px;
+   
+    mix-blend-mode: normal;
+    border-radius: 6px;
+    margin : 0 ;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .diet-img-fire{
+     background: rgba(255, 0, 0, 0.07);
+  }
+  .diet-img-chicken{
+    background: rgba(74, 184, 255, 0.1);
+  }
+  .diet-img-apple{
+    background:  rgba(249, 206, 35, 0.1);
+  }
+  .diet-img-burger{
+    background:  rgba(253, 81, 129, 0.1);
+  }
+  .diet-content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+  }
+  .diet-content h2{
+    margin: 0;
+    line-height:120%;
+    
+  }
+  .diet-content p {
+   align-self: flex-start;
+   font-size: 0.875rem;
+    line-height: 171%;
+    
+  }
+  @media screen and (max-width: 1350px) {
+   .diet {
+       margin-top: 40px;
+       flex-direction: row;
+       flex-wrap: wrap;
+       justify-content: space-around;
+   }
+   .diet article{
+       margin :10px 30px;
+   }
+  }
+ 

@@ -1,0 +1,18 @@
+/*title*/
+.title p{
+    font-size: 1.125rem;
+  line-height: 133%;
+  margin-bottom:72px ;
+  }
+  .title h1 {
+    font-weight: 500;
+    font-size: 3rem;
+    line-height: 50%;
+  }
+  .title h1 span{
+    color:red;
+    font-weight: 500;
+  font-size: 3rem;
+  line-height: 50%;
+  }
+  

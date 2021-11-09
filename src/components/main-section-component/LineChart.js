@@ -1,5 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
 import {  Line, LineChart, Tooltip, XAxis } from 'recharts';
+import PropTypes from 'prop-types';
+import '../style/line-chart.css'
+
 const weekDays = ["L", "M", "M", "J", "V", "S", "D"]
 const Linechart = ({ userData }) => {
     const [sessionsData, setSessionData] = useState()
@@ -67,3 +70,13 @@ const onMouseOut = () => {
 }
 
 export default Linechart;
+Linechart.propTypes = { //https://stackoverflow.com/questions/26923042/how-do-you-validate-the-proptypes-of-a-nested-object-in-reactjs
+    userData: PropTypes.shape({
+        sessions : PropTypes.shape({
+            sessions : PropTypes.arrayOf(PropTypes.shape({//https://stackoverflow.com/questions/32325912/react-proptype-array-with-shape
+                day: PropTypes.number,
+                sessionLength: PropTypes.number
+            }))
+        })
+    })
+  };

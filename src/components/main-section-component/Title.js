@@ -1,5 +1,6 @@
 import React from 'react';
-
+import PropTypes from 'prop-types';
+import '../style/title.css'
 
 const Title = ({userData}) => {
 
@@ -12,3 +13,14 @@ const Title = ({userData}) => {
 }
 
 export default Title;
+
+
+Title.propTypes = { //https://stackoverflow.com/questions/26923042/how-do-you-validate-the-proptypes-of-a-nested-object-in-reactjs
+    userData: PropTypes.shape({
+        user : PropTypes.shape({
+            userInfos: PropTypes.shape({
+                firstName: PropTypes.string
+            })
+        })
+    })
+  };

@@ -1,0 +1,55 @@
+/*lineChart*/
+.linechart {
+    position: relative;
+    background-image: linear-gradient(0deg, #ff0000 0 100%, #e60000 100% 100%);
+    border-radius: 5px;
+    height: 263px;
+    width: 258px;
+    display: flex;
+    align-items: flex-end;
+  }
+  .linechart h2 {
+    position: absolute;
+    left: 13.18%;
+    right: 29.46%;
+    top: 6.03%;
+    bottom: 67.3%;
+  
+    height: 48px;
+    width: 147px;
+    font-weight: 500;
+    font-size: 0.93rem;
+    line-height: 200%;
+    opacity: 0.5;
+    color: white;
+  }
+  .tooltip-line {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  
+    background: white;
+    height: 25px;
+    min-width: 39px;
+    padding: 0 7px;
+  }
+  .tooltip-line p {
+    color: black;
+    text-align: center;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 0.44rem;
+    line-height: 24px;
+  }
+  .recharts-active-dot{
+    transform: rotate(90deg);
+    
+  }
+  .recharts-active-dot circle{
+    stroke: white;
+    fill : white;
+    stroke-width: 4px;
+    outline: 5px solid rgba(255, 255, 255, 0.198345);/*bordure opaque*/
+    border-radius:50%;
+  }
+  

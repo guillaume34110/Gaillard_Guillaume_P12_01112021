@@ -1,0 +1,78 @@
+/*radail Progress*/
+.radial-progress {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 2px 4px 0px #00000005;
+    background: #fbfbfb;
+    height: 263px;
+    width: 258px;
+    border-radius: 5px;
+  }
+  .score {
+    position: absolute;
+    left: 11.63%;
+    right: 73.26%;
+    top: 9.13%;
+    bottom: 81.75%;
+    font-weight: 500;
+    font-size: 0.93rem;
+    line-height: 160%;
+    color: #20253a;
+    z-index: 10;
+  }
+  circle {
+    transform: rotate(270deg);
+    fill: none;
+    stroke-width: 10;
+    stroke-dasharray: 500;
+    stroke-linecap: round;
+  }
+  
+  .ring-style {
+    position: relative;
+    stroke: red;
+    height: 160px;
+    width: 160px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .ring-style circle:nth-child(1) {
+    stroke-dashoffset: calc(500 - (500 * 0) / 100);
+  }
+  .in-circle {
+    position: absolute;
+    left: 00px;
+    border-radius: 50%;
+    height: 160px;
+    width: 160px;
+    margin: 0;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    z-index: 1;
+  }
+  .in-circle p {
+    position: relative;
+    left: 16%;
+    font-weight: 500;
+    font-size: 0.93rem;
+    line-height: 150%;
+    width: 95px;
+  }
+  .in-circle h2 {
+    margin: 0;
+  }
+  .ring-style svg {
+    position: absolute;
+    height: 160px;
+    width: 160px;
+    overflow: visible;
+    z-index: 10;
+  }
+  
