@@ -31,3 +31,9 @@
   4. In your Browser go to : http://localhost:3001/
  
   5. click on the logo to toggle users.
+
+### start jsDocs :
+
+  1 . To start server use ``` npx styleguidist server ``` (the documentaion server start at port:6060)
+  
+  2. In your Browser go to : http://localhost:6060/
