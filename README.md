@@ -1,8 +1,11 @@
 # Project P12 SportSee
 to run this project you need : 
   1.Git
+  
   2.NodeJs (recomended minimum: v16.13.0 )
+  
   3.npm 
+  
   4.Vscode(recomended)
   
 ## how to:
