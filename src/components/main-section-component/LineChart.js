@@ -11,18 +11,18 @@ const Linechart = ({ userData }) => {
     useEffect(() => {
          let bufferData =[]
         for (let i = userData?.sessions.sessions.length - 1; i >= userData?.sessions.sessions.length - 7; i--) {
-            bufferData[i] = (userData?.sessions.sessions[i]) 
+            bufferData.unshift(userData?.sessions.sessions[i]) // create the new array of data in good order
         }
-       bufferData?.forEach((session) => {//transformer les chiffres en jours de la semaine
+       bufferData?.forEach((session) => {//transform number in string value
            if (session.day  <= 7) session.day = weekDays[session.day-1 ]
-           if (session.day  > 7) session.day = weekDays[(session.day-1 ) % 7]// utilisation du reste de la division
+           if (session.day  > 7) session.day = weekDays[(session.day-1 ) % 7]// use rest of division to have the right number
        })
 
         setSessionData(bufferData)
 
     }, [userData])
 
-    const TooltipLine = ({ active, payload, label }) => {
+    const TooltipLine = ({ active, payload, label }) => {//custom tooltip
         if (active && payload) {
           return (
             <div className="tooltip-line">

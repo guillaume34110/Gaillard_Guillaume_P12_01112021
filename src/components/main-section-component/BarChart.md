@@ -1,0 +1,4 @@
+BarChart example : 
+```js
+<Barchart  />
+```

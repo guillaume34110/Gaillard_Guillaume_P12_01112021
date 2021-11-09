@@ -12,7 +12,7 @@ const Diet = ({userData}) => {
     useEffect(() => {
         let bufferData = userData?.user.keyData ;
         if (bufferData?.calorieCount){
-            bufferData.calorieCount =  new Intl.NumberFormat("en-US").format(bufferData?.calorieCount)
+            bufferData.calorieCount =  new Intl.NumberFormat("en-US").format(bufferData?.calorieCount) //format calorie count  1,000 
         }
         setSessionsData(bufferData)
     }, [userData])

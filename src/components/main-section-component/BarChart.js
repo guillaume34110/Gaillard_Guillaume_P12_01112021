@@ -11,14 +11,14 @@ const Barchart = ({ userData }) => {
   useEffect(() => {
     if ( userData) {
       const sessionsBuffer = []
-      const minBuffer = { kilogram: 10000, calories: 10000 }
-      const maxBuffer = { kilogram: 0, calories: 0 }
+      const minBuffer = { kilogram: 10000, calories: 10000 } //set big value
+      const maxBuffer = { kilogram: 0, calories: 0 } // set small value
       for (let i = userData?.activity.sessions.length - 1; i > userData?.activity.sessions.length - 11; i--) {
         if (i > 0) {
-          sessionsBuffer.unshift(userData.activity.sessions[i])
-          if (minBuffer.kilogram > userData.activity.sessions[i].kilogram) minBuffer.kilogram = userData.activity.sessions[i].kilogram
+          sessionsBuffer.unshift(userData.activity.sessions[i]) // reordering data
+          if (minBuffer.kilogram > userData.activity.sessions[i].kilogram) minBuffer.kilogram = userData.activity.sessions[i].kilogram  // add min value
           if (minBuffer.calories > userData.activity.sessions[i].calories) minBuffer.calories = userData.activity.sessions[i].calories
-          if (maxBuffer.calories < userData.activity.sessions[i].calories) maxBuffer.calories = userData.activity.sessions[i].calories
+          if (maxBuffer.calories < userData.activity.sessions[i].calories) maxBuffer.calories = userData.activity.sessions[i].calories //add max value
           if (maxBuffer.kilogram < userData.activity.sessions[i].kilogram) maxBuffer.kilogram = userData.activity.sessions[i].kilogram
         }
         else sessionsBuffer.push({ kilogram: 0, calories: 0 })
@@ -31,7 +31,7 @@ const Barchart = ({ userData }) => {
       minBuffer.calories = Math.round(minBuffer.calories - (minBuffer.calories / 100))
       maxBuffer.kilogram = Math.round(maxBuffer.kilogram + (maxBuffer.kilogram / 100))
       maxBuffer.calories = Math.round(maxBuffer.calories + (maxBuffer.calories / 100))
-      if ((minBuffer.kilogram - maxBuffer.kilogram) % 2) minBuffer.kilogram = minBuffer.kilogram - 1
+      if ((minBuffer.kilogram - maxBuffer.kilogram) % 2) minBuffer.kilogram = minBuffer.kilogram - 1 // to have the right placement of ticks
       /*chartStep */
       const stepBuffer = [minBuffer.kilogram, maxBuffer.kilogram - ((maxBuffer.kilogram - minBuffer.kilogram) / 2), maxBuffer.kilogram + 1]
       setChartMax(maxBuffer)
@@ -43,7 +43,7 @@ const Barchart = ({ userData }) => {
   }, [userData])
 
 
-  const CustomTooltip = ({ active, payload, label }) => {
+  const CustomTooltip = ({ active, payload, label }) => { // custom tooltip
     if (active && payload) {
       return (
         <div className="custom-tooltip">

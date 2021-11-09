@@ -1,0 +1,4 @@
+Diet example : 
+```js
+<Diet  />
+```

@@ -9,14 +9,14 @@ const Chartradar = ({ userData }) => {
     const [sessionsData, setSessionData] = useState()
     useEffect(() => {
         let bufferData = [];
-        userData?.performance.data.forEach(data => {
+        userData?.performance.data.forEach(data => {//sort data order
              bufferData.unshift(data)
         })
        
         
         if (bufferData.length>1){
         bufferData.forEach(data =>{
-            data.kind = kinds[data.kind]
+            data.kind = kinds[data.kind] // format data from nuber to string value
         })
     }
         setSessionData(bufferData)
