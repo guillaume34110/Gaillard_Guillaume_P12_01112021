@@ -1,4 +1,5 @@
 Title example : 
 ```js
-<Title  />
+import {docData} from '../../documentationData/dataForDocOnly.js';
+<Title  userData = {docData}/>
 ```

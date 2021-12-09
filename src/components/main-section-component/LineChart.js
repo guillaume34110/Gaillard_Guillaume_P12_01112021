@@ -4,21 +4,41 @@ import PropTypes from 'prop-types';
 import '../style/line-chart.css'
 
 const weekDays = ["L", "M", "M", "J", "V", "S", "D"]
+/**
+ * 
+ * this component generate a line chart feed this component with userData
+ * need an object type : 
+ * 
+ * { 
+ * sessions {
+ *  sessions : [
+ *      {
+ *          day:1 ,
+ *          sessionLength:39
+ *      }
+ *     ]
+ *    }
+ * }
+ */
 const Linechart = ({ userData }) => {
     const [sessionsData, setSessionData] = useState()
     const chartRef = useRef(null)
 
     useEffect(() => {
-         let bufferData =[]
-        for (let i = userData?.sessions.sessions.length - 1; i >= userData?.sessions.sessions.length - 7; i--) {
-            bufferData.unshift(userData?.sessions.sessions[i]) // create the new array of data in good order
+        const goodData = async () => {
+            let sessionData = JSON.parse(JSON.stringify(userData?.sessions.sessions))
+            let bufferData =[]
+           for (let i = sessionData.length - 1; i >= sessionData.length - 7; i--) {
+               bufferData.unshift(sessionData[i]) // create the new array of data in good order
+           }
+          bufferData?.forEach((session) => {//transform number in string value
+              if (session.day  <= 7) session.day = weekDays[session.day-1 ]
+              if (session.day  > 7) session.day = weekDays[(session.day-1 ) % 7]// use rest of division to have the right number
+          })
+        
+           setSessionData(bufferData)
         }
-       bufferData?.forEach((session) => {//transform number in string value
-           if (session.day  <= 7) session.day = weekDays[session.day-1 ]
-           if (session.day  > 7) session.day = weekDays[(session.day-1 ) % 7]// use rest of division to have the right number
-       })
-
-        setSessionData(bufferData)
+         goodData()
 
     }, [userData])
 

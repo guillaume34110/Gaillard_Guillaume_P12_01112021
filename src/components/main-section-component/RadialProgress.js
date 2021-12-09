@@ -3,7 +3,15 @@ import PropTypes from 'prop-types';
 import '../style/radial-progress.css'
 /**
  * 
- * this component generate a radial progress chart
+ * this component generate a radial progress chart feed this component with userData
+ * 
+ * need an object type : 
+ * 
+ * { 
+ * user : { 
+ * todayScore : 12
+ * }
+ * }
  */
 const Radialprogress = ({userData}) => {
     const [sessionsData, setSessionsData] = useState()
@@ -16,9 +24,7 @@ const Radialprogress = ({userData}) => {
         let bufferData 
         if (userData?.user.todayScore) bufferData = userData?.user.todayScore * 100 ;
         if (userData?.user.score) bufferData = userData?.user.score * 100 ;
-        if (bufferData > 0){ 
-        circleRef.current.style.strokeDashoffset =`calc(500 - (500 * ${bufferData}) / 100)` //draw red cicle
-        }
+        if (bufferData > 0)  circleRef.current.style.strokeDashoffset =`calc(500 - (500 * ${bufferData}) / 100)` //draw red cicle
         setSessionsData(bufferData)
 
     }, [userData])

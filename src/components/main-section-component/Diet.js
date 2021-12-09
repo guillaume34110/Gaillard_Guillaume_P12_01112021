@@ -5,17 +5,38 @@ import apple from "../../assets/diet-icon/apple.png"
 import fire from "../../assets/diet-icon/fire.png"
 import burger from "../../assets/diet-icon/cheeseburger.png"
 import '../style/diet.css'
-
+/**
+ * 
+ * this component generate 4 cards with user diet feed this component with userData
+ * need an object type : 
+ * 
+ * { 
+ * user : { 
+ * keyData: { 
+ * calorieCount: 1930
+ * carbohydrateCount: 290
+ * lipidCount: 50
+ * proteinCount: 155
+ * }
+ * }
+ * }
+ *  
+ */
 const Diet = ({userData}) => {
     const [sessionsData, setSessionsData] = useState()
    
     useEffect(() => {
-        let bufferData = userData?.user.keyData ;
+        const goodData = async () => {
+    let bufferData = JSON.parse(JSON.stringify(userData?.user?.keyData)) ; //to clone object properly
         if (bufferData?.calorieCount){
             bufferData.calorieCount =  new Intl.NumberFormat("en-US").format(bufferData?.calorieCount) //format calorie count  1,000 
         }
         setSessionsData(bufferData)
-    }, [userData])
+}
+        goodData()
+    }, [userData ])
+
+
     return (
         <section className = "diet">
             <article>

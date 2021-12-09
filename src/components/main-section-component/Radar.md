@@ -1,4 +1,5 @@
 Radar example : 
 ```js
-<Chartradar  />
+import {docData} from '../../documentationData/dataForDocOnly.js';
+<Chartradar  userData = {docData}/>
 ```

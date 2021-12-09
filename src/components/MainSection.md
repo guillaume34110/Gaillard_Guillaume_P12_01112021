@@ -1,5 +1,6 @@
 
 MainSection example : 
 ```js
-<Mainsection  />
+import {docData} from '../documentationData/dataForDocOnly.js';
+<Mainsection  userData = {docData}/>
 ```

@@ -1,4 +1,5 @@
 Linechart example : 
 ```js
-<Linechart  />
+import {docData} from '../../documentationData/dataForDocOnly.js';
+<Linechart  userData = {docData}/>
 ```

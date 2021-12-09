@@ -1,4 +1,5 @@
 Navbar example : 
 ```js
-<Navbar  />
+import {docData} from '../../documentationData/dataForDocOnly.js';
+<Navbar  userData = {docData}/>
 ```

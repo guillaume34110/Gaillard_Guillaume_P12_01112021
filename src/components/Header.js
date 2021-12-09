@@ -1,5 +1,10 @@
 import React from 'react';
 import logo from '../assets/logo/logo.png'
+/**
+ * 
+ * Header  component just feed this component with {userToggle , setUserToggle} to toggeling user
+ */
+
 const Header = ({userToggle , setUserToggle}) => {
     const toggle = () => {
         if (userToggle === '12') setUserToggle('18')

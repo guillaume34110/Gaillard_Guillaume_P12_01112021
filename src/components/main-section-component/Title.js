@@ -3,7 +3,17 @@ import PropTypes from 'prop-types';
 import '../style/title.css'
 /**
  * 
- * this function generate title with dynamic name
+ * this function generate title with dynamic name feed this component with userData
+ * need an object type : 
+ * 
+ * { 
+ * user : { 
+ * userInfos : { 
+ * firstName : "karl"
+ * }
+ * }
+ * }
+ * 
  */
 const Title = ({userData}) => {
 

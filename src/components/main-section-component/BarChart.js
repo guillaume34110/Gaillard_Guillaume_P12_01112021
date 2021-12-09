@@ -2,6 +2,17 @@ import React, { useEffect, useState } from 'react';
 import { BarChart, CartesianGrid, XAxis, YAxis, Tooltip, Bar  } from 'recharts'
 import PropTypes from 'prop-types';
 import  '../style/bar-chart.css'
+/**
+ * 
+ * this component generate a bar chart feed this component with userData
+ * need an object type :
+ *  
+ * { activity : 
+ * {session : [
+ * {day : '2020-007-01' , kilogram : 80 , calories : 240}
+ * ]}
+ * }
+ */
 const Barchart = ({ userData }) => {
   const [sessionsData, setSessionData] = useState([])
   const [chartMin, setChartMin] = useState({})
@@ -11,15 +22,17 @@ const Barchart = ({ userData }) => {
   useEffect(() => {
     if ( userData) {
       const sessionsBuffer = []
+      let dataBuffer = JSON.parse(JSON.stringify(userData?.activity.sessions))
       const minBuffer = { kilogram: 10000, calories: 10000 } //set big value
       const maxBuffer = { kilogram: 0, calories: 0 } // set small value
-      for (let i = userData?.activity.sessions.length - 1; i > userData?.activity.sessions.length - 11; i--) {
-        if (i > 0) {
+      for (let i = dataBuffer.length - 1; i > dataBuffer.length - 11; i--) {
+        if (i >= 0) {
           sessionsBuffer.unshift(userData.activity.sessions[i]) // reordering data
-          if (minBuffer.kilogram > userData.activity.sessions[i].kilogram) minBuffer.kilogram = userData.activity.sessions[i].kilogram  // add min value
-          if (minBuffer.calories > userData.activity.sessions[i].calories) minBuffer.calories = userData.activity.sessions[i].calories
-          if (maxBuffer.calories < userData.activity.sessions[i].calories) maxBuffer.calories = userData.activity.sessions[i].calories //add max value
-          if (maxBuffer.kilogram < userData.activity.sessions[i].kilogram) maxBuffer.kilogram = userData.activity.sessions[i].kilogram
+
+          if (minBuffer.kilogram > dataBuffer[i].kilogram) minBuffer.kilogram = dataBuffer[i].kilogram  // add min value
+          if (minBuffer.calories > dataBuffer[i].calories) minBuffer.calories = dataBuffer[i].calories
+          if (maxBuffer.calories < dataBuffer[i].calories) maxBuffer.calories = dataBuffer[i].calories //add max value
+          if (maxBuffer.kilogram < dataBuffer[i].kilogram) maxBuffer.kilogram = dataBuffer[i].kilogram
         }
         else sessionsBuffer.push({ kilogram: 0, calories: 0 })
       }
@@ -38,7 +51,7 @@ const Barchart = ({ userData }) => {
       setChartMin(minBuffer)
       setSessionData(sessionsBuffer)
       setChartStep(stepBuffer)
-      console.log('rerer')
+
     }
   }, [userData])
 

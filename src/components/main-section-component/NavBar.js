@@ -4,7 +4,12 @@ import swim from "../../assets/nav-icon/swim.png"
 import cycling from "../../assets/nav-icon/cycle.png"
 import strength from "../../assets/nav-icon/strength.png"
 import '../style/nav-bar.css'
-
+/**
+ * 
+ * this component generate lateral navBar feed this component with userData
+ * 
+ * 
+ */
 const Navbar = () => {
     return (
         <div className="navbar">

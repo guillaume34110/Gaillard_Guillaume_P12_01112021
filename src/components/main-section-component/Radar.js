@@ -4,22 +4,38 @@ import PropTypes from 'prop-types';
 import '../style/radar.css'
 
 const kinds = [null,"Cardio" , "Energie" , "Endurance" , "Force" , "Vitesse" , "Intensité"]
-
+/**
+ * 
+ * this component generate a radar chart feed this component with userData
+ * 
+ *  need an object type :
+ * 
+ *  { 
+ * performance{
+ * data :[
+ * { 
+ * value :80 , kind : 1}
+ * }]
+ * }
+ * }
+ */
 const Chartradar = ({ userData }) => {
     const [sessionsData, setSessionData] = useState()
     useEffect(() => {
-        let bufferData = [];
-        userData?.performance.data.forEach(data => {//sort data order
-             bufferData.unshift(data)
-        })
-       
-        
-        if (bufferData.length>1){
-        bufferData.forEach(data =>{
-            data.kind = kinds[data.kind] // format data from nuber to string value
-        })
-    }
-        setSessionData(bufferData)
+        const goodData = async () => {
+            let radarData = JSON.parse(JSON.stringify(userData?.performance.data))
+            let bufferData = [];
+            radarData.forEach(data => {//sort data order
+                     bufferData.unshift(data)
+                })
+                if (bufferData.length>1){
+                bufferData.forEach(data =>{
+                    data.kind = kinds[data.kind] // format data from number to string value
+                })
+            }
+                setSessionData(bufferData)
+        }
+        goodData()
 
     }, [userData])
 

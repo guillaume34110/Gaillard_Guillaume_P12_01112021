@@ -19,12 +19,12 @@ const Profilepage = () => {
         }
     }
      fetchData()
-    }, [userToggle]);
+    }, [userToggle]); // eslint-disable-line react-hooks/exhaustive-deps
 
     useEffect( () => {
-        if(emptyToken>0)setUserData(newUserData)// on met a jour l'objet
+        if(emptyToken>0) setUserData(newUserData)// on met a jour l'objet
         
-    }, [emptyToken]);
+    }, [emptyToken]); // eslint-disable-line react-hooks/exhaustive-deps
     return (
         <div>
             <Header userToggle={userToggle} setUserToggle = {setUserToggle}/>
